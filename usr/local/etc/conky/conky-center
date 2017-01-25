@@ -1,0 +1,46 @@
+conky.config = {
+    alignment = 'middle_middle',
+    background = false,
+    border_width = 0,
+    cpu_avg_samples = 2,
+		default_color = 'e5e5e5',
+    default_outline_color = 'white',
+    default_shade_color = 'white',
+    draw_borders = false,
+    draw_graph_borders = false,
+    draw_outline = false,
+    draw_shades = false,
+    gap_y = -20,
+    use_xft = true,
+    font = 'Aurulent Sans:size=12',
+    text_buffer_size = 1024,
+    minimum_height = 90,
+		minimum_width = 120,
+    net_avg_samples = 2,
+    no_buffers = true,
+    out_to_console = false,
+    out_to_stderr = false,
+    extra_newline = false,
+    own_window = true,
+    own_window_class = 'Conky',
+    own_window_type = 'dock',
+    stippled_borders = 0,
+    update_interval = 1.0,
+    uppercase = false,
+    use_spacer = 'none',
+    show_graph_scale = false,
+    own_window_argb_value = 0,
+    own_window_argb_visual = true,
+    own_window_hints = 'undecorated,below,sticky,skip_taskbar,skip_pager',
+    show_graph_range = false,
+    double_buffer = true,
+}
+
+conky.text = [[
+${image /usr/share/icons/Tebu/places/96/start-here.png -p 30,0}
+${voffset 60}
+${offset 17}${exec lsb_release -sd}
+${offset 10}Linux ${kernel}
+#${voffset 20}${offset 10}Batt:${color}   ${battery BAT1}
+${offset 25}${voffset 20}${color #FFA900}${font neuropol}${battery_percent BAT1}%${color}${font Nimbus Mono L:size=8 style=bold}  Battery
+]]

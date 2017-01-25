@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=Blankon Conky
+Exec=blanky
+Icon=distributor-logo
+Type=Application
+Comment=This is Blankon Conky Launcher 
+Categories=Utility;System;
+Hidden=false
+NoDisplay=false
+X-GNOME-Autostart-enabled=true

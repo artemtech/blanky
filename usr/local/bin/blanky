@@ -1,0 +1,5 @@
+#!/bin/sh
+conky -d -c /usr/local/etc/conky/conky-center &
+conky -d -c /usr/local/etc/conky/conky-cpu &
+conky -d -c /usr/local/etc/conky/conky-cal &
+conky -d -c /usr/local/etc/conky/conky-ram

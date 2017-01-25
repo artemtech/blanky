@@ -1,0 +1,54 @@
+conky.config = {
+  alignment = 'middle_middle',
+	total_run_times = 0,
+  background = false,
+  cpu_avg_samples = 1,
+  color1 = 'D6D6D6',
+  color2 = 'EFEFEF',
+  color3 = '48D292',
+	default_color = 'white',
+  default_outline_color = 'black',
+  default_shade_color = '333333',
+  default_bar_width = 82,
+  default_bar_height = 3,
+  double_buffer = true,
+  text_buffer_size = 1024,
+  border_width = 1,
+  border_inner_margin = 1,
+  draw_borders = false,
+  draw_outline = false,
+  draw_shades = false,
+  override_utf8_locale = true,
+  use_xft = true,
+  xftalpha = 0.1,
+  font = 'Aurulent Sans Mono:size=8',
+  gap_x = -250,
+  gap_y = -94,
+  maximum_width = 400,
+  minimum_width = 335,
+  minimum_height = 300,
+  net_avg_samples = 2,
+  no_buffers = true,
+  out_to_console = false,
+  own_window_argb_value = 0,  --atur transparansi background
+  own_window_argb_visual = true,
+  own_window = true,
+  own_window_type = 'dock',
+  own_window_hints = 'undecorated,below,sticky,skip_taskbar,skip_pager',
+  stippled_borders = 3,
+  uppercase = false,
+  use_spacer = 'right',
+  update_interval = 2.0,
+  short_units = true,
+  pad_percents = 2,
+	lua_load = '/usr/local/etc/conky/lua-script/ram.lua',
+	lua_draw_hook_pre = 'clock_rings'
+}
+conky.text = [[
+${voffset 40}${color d7d7d7}${cpugraph cpu6 1,145}${voffset 2}${cpugraph cpu6 50,1}
+${voffset -15}${font Bitstream Vera Sans Mono:bold:size=8}${offset 150}${color3}${top_mem name 1}${color}${top_mem mem 1}%
+${offset 150}${font Bitstream Vera Sans Mono:bold:size=8}${color3}${top_mem name 2}${color}${top_mem mem 2}%
+${offset 150}${font Bitstream Vera Sans Mono:bold:size=8}${color3}${top_mem name 3}${color}${top_mem mem 3}%
+${voffset 25}${offset 160}${color3}${font neuropol:size=8}SWAP        ${font}${color}$swap / $swapmax
+${voffset 5}${offset 160}${color3}${font neuropol:size=8}RAM          ${font}${color}$mem / $memmax
+]]

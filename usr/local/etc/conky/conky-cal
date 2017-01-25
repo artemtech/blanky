@@ -1,0 +1,53 @@
+conky.config={
+	alignment = 'middle_middle',
+	total_run_times = 0,
+  background = false,
+  cpu_avg_samples = 1,
+  color1 = 'D6D6D6',
+  color2 = 'EFEFEF',
+  color3 = '48D292',
+	default_color = 'blue',
+  default_outline_color = 'black',
+  default_shade_color = '333333',
+  default_bar_width = 82,
+  default_bar_height = 3,
+  double_buffer = true,
+  text_buffer_size = 1024,
+  border_width = 1,
+  border_inner_margin = 1,
+  draw_borders = false,
+  draw_outline = false,
+  draw_shades = false,
+  override_utf8_locale = true,
+  use_xft = true,
+  xftalpha = 0.1,
+  font = 'saxMono:size=9',
+  gap_x = 250,
+  gap_y = -80,
+  maximum_width = 335,
+  minimum_width = 335,
+  net_avg_samples = 2,
+  no_buffers = true,
+  out_to_console = false,
+  own_window_argb_value = 5,  --atur transparansi background
+  own_window_argb_visual = true,
+  own_window = true,
+  own_window_type = 'dock',
+  own_window_hints = 'undecorated,below,sticky,skip_taskbar,skip_pager',
+  stippled_borders = 3,
+  uppercase = false,
+  use_spacer = 'right',
+  update_interval = 1,
+  short_units = true,
+  pad_percents = 2,
+	lua_load = '~/.config/conky/lua-script/clock.lua',
+	lua_draw_hook_pre = 'clock_rings'
+}
+conky.text=[[
+ ${color d7d7d7}${offset 56}${voffset -1}${cpugraph cpu6 17,1}${voffset -3}${hr 2}${color3}
+
+ ${voffset -19}${offset 150}${font neuropol:size=20}${time %H:%M:%S}${font}  ${voffset -3}${font Nimbus Mono L:size=9}
+ ${voffset 3}${offset 110}${cpubar cpu6 0, 200}${voffset 2}${color1}
+ ${font Ubuntu Mono:size=10 style=bold}${color2}${alignc} ${exec date +%d\ %B\ %Y | sed 's/^.\| [a-z]/\U&/g'}
+ ${color1}${execpi 60 TGL=`date +%-d`; ncal -wbhS| sed '1d'| sed 's/^/             ${offset -30}             /g'|sed -e 's/\<'$TGL'\>/${color3}&${color1}/' | sed ':a;N;$!ba;s/\n/\n/g'}
+]]
