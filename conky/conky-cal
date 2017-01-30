@@ -40,7 +40,7 @@ conky.config={
   update_interval = 1,
   short_units = true,
   pad_percents = 2,
-	lua_load = '~/.config/conky/lua-script/clock.lua',
+	lua_load = '/usr/share/blanky/lua-script/clock.lua',
 	lua_draw_hook_pre = 'clock_rings'
 }
 conky.text=[[

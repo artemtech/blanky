@@ -5,7 +5,7 @@ conky.config = {
   cpu_avg_samples = 1,
   color1 = 'D6D6D6',
   color2 = 'EFEFEF',
-  color3 = '7AD9AD',
+  color3 = '48D292',
 	default_color = 'white',
   default_outline_color = 'black',
   default_shade_color = '333333',
@@ -21,9 +21,9 @@ conky.config = {
   override_utf8_locale = true,
   use_xft = true,
   xftalpha = 0.1,
-  font = 'Aurulent Sans Mono:size=9',
-  gap_x = -156,
-  gap_y = 100,
+  font = 'Aurulent Sans Mono:size=8',
+  gap_x = -250,
+  gap_y = -94,
   maximum_width = 400,
   minimum_width = 335,
   minimum_height = 300,
@@ -41,18 +41,14 @@ conky.config = {
   update_interval = 2.0,
   short_units = true,
   pad_percents = 2,
-	lua_load = '/usr/local/etc/conky/lua-script/cpu.lua',
-	lua_draw_hook_pre = 'clock_rings'
+  lua_load = '/usr/share/blanky/lua-script/ram.lua',
+  lua_draw_hook_pre = 'clock_rings'
 }
 conky.text = [[
-${voffset 70}${color d7d7d7}${cpugraph cpu6 110,1}${voffset -1}${cpugraph cpu6 1,185}
-${offset 105}${voffset -183}${color1}${font saxMono:size=8}CPU1      ${cpu cpu1}%
-${offset 105}${voffset 2}CPU2      ${cpu cpu2}%
-${offset 105}${voffset 2}CPU3      ${cpu cpu3}%
-${offset 105}${voffset 2}CPU4      ${cpu cpu4}%
-${offset 40}${voffset 18}${color 48D292}${font Bitstream Vera Sans Mono:bold:size=8}${top name 1}$color${top cpu 1}%
-${offset 40}${color 48D292}${font Bitstream Vera Sans Mono:bold:size=8}${top name 2}$color${top cpu 2}%
-${offset 40}${color 48D292}${font Bitstream Vera Sans Mono:bold:size=8}${top name 3}$color${top cpu 3}%
-${offset 40}${voffset -105}CPU ${offset -60}${voffset 20}${font neuropol:size=10}${exec cat /proc/cpuinfo | grep 'model name' | cut -c 47-50 | head -1} GHz
-
+${voffset 40}${color d7d7d7}${cpugraph cpu6 1,145}${voffset 2}${cpugraph cpu6 50,1}
+${voffset -15}${font Bitstream Vera Sans Mono:bold:size=8}${offset 150}${color3}${top_mem name 1}${color}${top_mem mem 1}%
+${offset 150}${font Bitstream Vera Sans Mono:bold:size=8}${color3}${top_mem name 2}${color}${top_mem mem 2}%
+${offset 150}${font Bitstream Vera Sans Mono:bold:size=8}${color3}${top_mem name 3}${color}${top_mem mem 3}%
+${voffset 25}${offset 160}${color3}${font neuropol:size=8}SWAP        ${font}${color}$swap / $swapmax
+${voffset 5}${offset 160}${color3}${font neuropol:size=8}RAM          ${font}${color}$mem / $memmax
 ]]

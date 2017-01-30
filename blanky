@@ -1,0 +1,5 @@
+#!/bin/sh
+conky -d -c /usr/share/blanky/conky-center &
+conky -d -c /usr/share/blanky/conky-cpu &
+conky -d -c /usr/share/blanky/conky-cal &
+conky -d -c /usr/share/blanky/conky-ram
