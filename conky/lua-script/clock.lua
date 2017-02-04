@@ -168,18 +168,14 @@ function conky_clock_rings()
   value=tonumber(str)
   if value == nil then value = 0 end
 
---Les ajouts suivants permettent de corriger le retard prit par les anneaux
-  --Ajout wlourf : conversion des minutes en centièmes d'heures
   if pt['arg'] == "%I.%M"  then
     value=os.date("%I")+os.date("%M")/60
     if value>12 then value=value-12 end
   end
 
-  --Ajout Fenouille84 : conversion des secondes en centièmes de minutes
   if pt['arg'] == "%M.%S"  then
     value=os.date("%M")+os.date("%S")/60
   end
-  --Fin ajout
 
   pct=value/pt['max']
   draw_ring(cr,pct,pt)

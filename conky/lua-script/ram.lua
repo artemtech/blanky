@@ -98,49 +98,6 @@ function draw_ring(cr,t,pt)
   cairo_stroke(cr)
 end
 
---[[function draw_clock_hands(cr,xc,yc)
-  local secs,mins,hours,secs_arc,mins_arc,hours_arc
-  local xh,yh,xm,ym,xs,ys
-
-  secs=os.date("%S")
-  mins=os.date("%M")
-  hours=os.date("%I")
-
-  secs_arc=(2*math.pi/60)*secs
-  mins_arc=(2*math.pi/60)*mins+secs_arc/60
-  hours_arc=(2*math.pi/12)*hours+mins_arc/12
-
-  --Draw hour hand
-  xh=xc+0.65*clock_r*math.sin(hours_arc)
-  yh=yc-0.65*clock_r*math.cos(hours_arc)
-  cairo_move_to(cr,xc,yc)
-  cairo_line_to(cr,xh,yh)
-  --
-  cairo_set_line_cap(cr,CAIRO_LINE_CAP_ROUND)
-  cairo_set_line_width(cr,5)
-  cairo_set_source_rgba(cr,rgb_to_r_g_b(clock_colour,clock_alpha))
-  cairo_stroke(cr)
-
-  --Draw minute hand
-  xm=xc+0.95*clock_r*math.sin(mins_arc)
-  ym=yc-0.95*clock_r*math.cos(mins_arc)
-  cairo_move_to(cr,xc,yc)
-  cairo_line_to(cr,xm,ym)
-  --
-  cairo_set_line_width(cr,3)
-  cairo_stroke(cr)
-
-  -- Draw seconds hand
-  if show_seconds then
-    xs=xc+1.1*clock_r*math.sin(secs_arc)
-    ys=yc-1.1*clock_r*math.cos(secs_arc)
-    cairo_move_to(cr,xc,yc)
-    cairo_line_to(cr,xs,ys)
-    --
-    cairo_set_line_width(cr,1)
-    cairo_stroke(cr)
-  end
-end]]
 
 function conky_clock_rings()
   local function setup_rings(cr,pt)
@@ -153,18 +110,14 @@ function conky_clock_rings()
   value=tonumber(str)
   if value == nil then value = 0 end
 
---Les ajouts suivants permettent de corriger le retard prit par les anneaux
-  --Ajout wlourf : conversion des minutes en centièmes d'heures
   if pt['arg'] == "%I.%M"  then
     value=os.date("%I")+os.date("%M")/60
     if value>12 then value=value-12 end
   end
 
-  --Ajout Fenouille84 : conversion des secondes en centièmes de minutes
   if pt['arg'] == "%M.%S"  then
     value=os.date("%M")+os.date("%S")/60
   end
-  --Fin ajout
 
   pct=value/pt['max']
   draw_ring(cr,pct,pt)
